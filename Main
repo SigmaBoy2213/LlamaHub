@@ -1,0 +1,146 @@
+local Fluent = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"))()
+
+local Window = Fluent:CreateWindow({
+    Title = "Llama's Loader",
+    SubTitle = "v1.0.2",
+    TabWidth = 160,
+    Size = UDim2.fromOffset(580, 460),
+    Acrylic = true, -- The blur may be detectable, setting this to false disables blur entirely
+    Theme = "Darker",
+    MinimizeKey = Enum.KeyCode.LeftControl -- Used when theres no MinimizeKeybind
+})
+
+-- Fluent provides Lucide Icons, they are optional
+local Tabs = {
+    Main = Window:AddTab({ Title = "Main", Icon = "code" }),
+    Main2 = Window:AddTab({ Title = "Settings", Icon = "settings-2" })
+}
+
+Window:SelectTab(1)
+
+local Section = Tabs.Main:AddSection("Dead Rails")
+
+Tabs.Main:AddButton({
+    Title = "Doggo's Bond Farmer",
+    Description = "Made by bloxfruitswawa and doggoman230",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/doggoman230/autobond/refs/heads/main/script"))()
+    end
+})
+
+Tabs.Main:AddButton({
+    Title = "Hung Hub Bond Farmer",
+    Description = "Could Honestly Not Work I don't know",
+    Callback = function()
+       loadstring(game:HttpGet("https://raw.githubusercontent.com/hungquan99/HungHub/main/loader.lua"))()
+    end
+})
+
+local Section = Tabs.Main:AddSection("Funky Friday")
+
+Tabs.Main:AddButton({
+    Title = "Uni Hub Auto Player",
+    Description = "Works On Updated [2.0] (!)",
+    Callback = function()
+      loadstring(game:HttpGet('https://raw.githubusercontent.com/salmsalm123/supported/main/FunkyFridayFree'))()
+    end
+})
+
+Tabs.Main:AddButton({
+    Title = "Null Fire",
+    Description = "Works Mostly On Mobile, Solara Support Don't know if works didn't test!",
+    Callback = function()
+      loadstring(game:HttpGet("https://raw.githubusercontent.com/InfernusScripts/Fire-Hub/main/Loader"))()
+    end
+})
+
+local Section = Tabs.Main:AddSection("Universal")
+
+Tabs.Main:AddButton({
+    Title = "Infinite Yield",
+    Description = "Admin Commands, OG Script Works Flawlessly",
+    Callback = function()
+        loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
+    end
+})
+
+Tabs.Main:AddButton({
+    Title = "UNC Test",
+    Description = "Checks The Capabilities Of your executor!",
+    Callback = function()
+        loadstring(game:HttpGet('https://raw.githubusercontent.com/unified-naming-convention/NamingStandard/refs/heads/main/UNCCheckEnv.lua'))()
+    end
+})
+
+local Slider = Tabs.Main:AddSlider("Slider", 
+{
+    Title = "Speed",
+    Description = "Adjust your walk-speed",
+    Default = 15,
+    Min = 16,
+    Max = 1000,
+    Rounding = 1,
+    Callback = function(Value)
+        game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = Value
+    end
+})
+
+local Slider = Tabs.Main:AddSlider("Slider2", 
+{
+    Title = "Jump",
+    Description = "Adjust your Jump-power",
+    Default = 50,
+    Min = 50,
+    Max = 3000,
+    Rounding = 1,
+    Callback = function(Value)
+        game.Players.LocalPlayer.Character.Humanoid.JumpPower = Value
+    end
+})
+
+local Section = Tabs.Main:AddSection("Chat Bypassers")
+
+Tabs.Main:AddButton({
+    Title = "Cat Bypass",
+    Description = "Change your language to kaak tini For It To Work!",
+    Callback = function()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/shadow62x/catbypass/main/upfix"))()
+    end
+})
+
+local Section = Tabs.Main:AddSection("Misc")
+
+Tabs.Main:AddButton({
+    Title = "Kick Player",
+    Description = "Kicks The Player Using The Script",
+    Callback = function()
+		local plr = game.Players.LocalPlayer 
+		plr:kick('Llama llama red pyjama')		
+	   end
+})
+
+local Section = Tabs.Main2:AddSection("Settings")
+
+Tabs.Main2:AddButton({
+    Title = "Join My Discord Server",
+    Description = "Nothing to Add Really",
+    Callback = function()
+        setclipboard("https://discord.gg/6ttHtRgMpf")
+		Fluent:Notify({
+        Title = "Succesful!",
+        Content = "Succesfully Copied Link",
+        SubContent = "Llama", -- Optional
+        Duration = 2 -- Set to nil to make the notification not disappear
+	})
+		    end
+})
+
+local Section = Tabs.Main2:AddSection("Misc")
+
+Tabs.Main2:AddButton({
+    Title = "Close Llama Hub",
+    Description = "Closes Llama Hub The Alternative Way!",
+    Callback = function()
+        Fluent:Destroy()
+    end
+})
